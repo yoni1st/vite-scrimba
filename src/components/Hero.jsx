@@ -1,5 +1,5 @@
 import React from 'react'
-import gridPic from '../assets/photo-grid.png'
+import gridPic from '../../public/assets/photo-grid.png'
 
 export default function Hero() {
   return (
