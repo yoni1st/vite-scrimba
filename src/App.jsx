@@ -1,55 +1,37 @@
 import { useState } from 'react'
-import viteLogo from '../public/assets/Vite.svg'
 import './App.css'
 import Hero from './components/Hero'
 import Card from './components/Card'
+import Navbar from './components/Navbar'
+import data from './data'
 
 function App() {
+  const cards = data.map((item) => {
+    return(
+      < Card
+        key = {item.id}       
+        {...item}
+        //or
+        //item={item}
+        //or
+        // img = {item.coverImg}
+        // rating = {item.stats.rating}
+        // reviewCount = {item.stats.reviewCount}
+        // location = {item.location}
+        // title = {item.title}
+        // price = {item.price}
+        // openSpots = {item.openSpots}
+      />
+    )
+  })
   return (
     <div className="App">
-      <nav className='header'>
-        <div className='logoDiv'>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <h3>Kings</h3>
-        </div>
-
-        <ul>
-          <li>Home</li>
-          <li>Favorite</li>
-          <li>About</li>
-          <li>Sign in</li>
-        </ul>
-      </nav> 
-
-      {/* < Hero /> */}
-
-      < Card 
-        img = "katie-zaferes.png"
-        rating = "5.0"
-        reviewCount = {6}
-        country = "USA"
-        title = "Life Lessons with Katie Zaferes"
-        price = {136}
-      />
-      < Card 
-        img = "katie-zaferes.png"
-        rating = "5.0"
-        reviewCount = {6}
-        country = "USA"
-        title = "Life Lessons with Katie Zaferes"
-        price = {136}
-      />
-      < Card 
-        img = "katie-zaferes.png"
-        rating = "5.0"
-        reviewCount = {6}
-        country = "USA"
-        title = "Life Lessons with Katie Zaferes"
-        price = {136}
-      />
-      
+      < Navbar />
+      < Hero />
+      <section className='cards-list'>
+        {cards}
+      </section>
+            
     </div>
   )
 }
